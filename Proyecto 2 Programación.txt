@@ -1,24 +1,9 @@
-Proyecto 2 Programación:
-
-Ideas:
-AHORCADo temático
-Solitario
-Word Guess temático
-Sopa de Letras temática
-Sudoku
-4 en raya
-Love Letter
-Cazar pokemons
-Abrir sobres pokemon
-
-
-
-
 CAZAR POKEMON + AHORCADO
 
+*** IDEA DE FUNCIONAMIENTO BÁSICO ***
 menú y todo eso
 
-ha aparecido un pokemon salvaje!
+ha aparecido un pokemon!
 Intenta adivinar su nombre
 _ _ _ _ _ _
 
@@ -29,12 +14,16 @@ _ _ _ _ _ _
 
 usuario: 3
 Has elegido pedir pista:
-El pokemon es de tipo fuego.
+* El 
 
 _ _ _ _ _ _
 
 
+
+*** ANOTACIONES ***
 MVC
 Separar clases en partes: VISTA y MODELO(tablero, jugador, etc) y CONTROLADOR(intermediario)
-
 Lo separo en archivos diferentes y luego importo con import
+
+
+*** IDEA ***
