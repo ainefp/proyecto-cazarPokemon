@@ -3,31 +3,36 @@ from contador_letras import contar_letras
 
 class Biblioteca:
     pokemon: Pokemon
-    lista: list
+    lista: list = []
 
     def __init__(self, pokemon: Pokemon):
         self.pokemon = pokemon
-        self.lista = []
+        self.lista = Biblioteca.agregar_pokemon(pokemon)
     
-    def agregar_pokemon(self) -> list:
-        self.lista.append(self.pokemon)
-        return self.lista
+    def agregar_pokemon(cls) -> list:
+        Biblioteca.lista.append(Biblioteca.pokemon)
+    #  hacer esto con metodp estatico y así se añaden siempre automáticamente
     
-    def __str__(self):
+    def ver_biblioteca(self):
         lista = "".join(self.lista)
         print(lista)
+    
+    def __str__(self):
+        return Pokemon(self.pokemon)
+        
 
 ponyta = Pokemon("ponyta", contar_letras("ponyta"), "fuego", 24.5, 1.12)
+ponyta2 = Biblioteca(ponyta)
+ponyta2.agregar_pokemon()
+#ponyta.ver_biblioteca()
 print(ponyta)
-
-ponyta = Biblioteca(ponyta)
-ponyta.agregar_pokemon()
+print(ponyta2)
 
 
-pikachu = Pokemon("pikachu", contar_letras("pikachu"), "electrico", 16.6, 0.98)
-print(pikachu)
+# pikachu = Pokemon("pikachu", contar_letras("pikachu"), "electrico", 16.6, 0.98)
+# print(pikachu)
 
-pikachu = Biblioteca(pikachu)
-pikachu.agregar_pokemon()
+# pikachu = Biblioteca(pikachu)
+# pikachu.agregar_pokemon()
 
-print(pikachu)
+# print(pikachu)
