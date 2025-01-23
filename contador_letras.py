@@ -1,13 +1,12 @@
-# Función para contar las letras de los nombres
-
 def contar_letras(nombre):
-    """_summary_
+    """Función utilizada para contar los caracteres de la cadena que se le pase.
+    Se utilizará para contar las letras de los nombres de pokemons, por ello se llama 'contar_letras'.
 
     Args:
-        nombre (_type_): _description_
+        nombre (str): Cadena que recibe
 
     Returns:
-        _type_: _description_
+        int: Nº de caracteres de la cadena
     """
     total = 0
     for letra in range(len(nombre)):
