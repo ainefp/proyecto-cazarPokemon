@@ -1,6 +1,7 @@
 from Pokemon import Pokemon
 from contador_letras import contar_letras
 
+# La clase Biblioteca se utiliza para guardar los pokemons del objeto Pokemon
 class Biblioteca:
     pokemon: Pokemon
     lista: list = []
@@ -9,9 +10,8 @@ class Biblioteca:
         self.pokemon = pokemon
         self.lista = Biblioteca.agregar_pokemon(pokemon)
     
-    def agregar_pokemon(cls) -> list:
-        Biblioteca.lista.append(Biblioteca.pokemon)
-    #  hacer esto con metodp estatico y así se añaden siempre automáticamente
+    def agregar_pokemon(pokemon: Pokemon) -> list:
+        Biblioteca.lista.append(pokemon)
     
     def ver_biblioteca(self):
         lista = "".join(self.lista)
@@ -24,15 +24,13 @@ class Biblioteca:
 ponyta = Pokemon("ponyta", contar_letras("ponyta"), "fuego", 24.5, 1.12)
 ponyta2 = Biblioteca(ponyta)
 ponyta2.agregar_pokemon()
-#ponyta.ver_biblioteca()
-print(ponyta)
-print(ponyta2)
+#ponyta2.ver_biblioteca()
+# print(ponyta)
+# print(ponyta2)
 
 
-# pikachu = Pokemon("pikachu", contar_letras("pikachu"), "electrico", 16.6, 0.98)
-# print(pikachu)
+pikachu = Pokemon("pikachu", contar_letras("pikachu"), "electrico", 16.6, 0.98)
+print(pikachu)
 
-# pikachu = Biblioteca(pikachu)
-# pikachu.agregar_pokemon()
-
-# print(pikachu)
+pikachu = Biblioteca(pikachu)
+pikachu.agregar_pokemon()
