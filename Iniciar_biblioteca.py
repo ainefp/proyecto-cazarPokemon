@@ -1,0 +1,1 @@
+# Aquí se agregan a los pokemons
