@@ -1,0 +1,37 @@
+{
+    "bulbasaur": {
+        "nombre": "bulbasaur",
+        "tipo": "planta/veneno",
+        "tamanho": 0.7,
+        "peso": 6.9,
+        "n_pokedex": 1
+    },
+    "ivysaur": {
+        "nombre": "",
+        "tipo": "",
+        "tamanho": ,
+        "peso": ,
+        "n_pokedex": 
+    },
+    "": {
+        "nombre": "",
+        "tipo": "",
+        "tamanho": ,
+        "peso": ,
+        "n_pokedex": 
+    },
+    "": {
+        "nombre": "",
+        "tipo": "",
+        "tamanho": ,
+        "peso": ,
+        "n_pokedex": 
+    },
+    "": {
+        "nombre": "",
+        "tipo": "",
+        "tamanho": ,
+        "peso": ,
+        "n_pokedex": 
+    }
+}
