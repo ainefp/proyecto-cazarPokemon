@@ -27,3 +27,8 @@ Lo separo en archivos diferentes y luego importo con import
 
 
 *** IDEA ***
+
+Creado .json para crear un diccionario de diccionarios con todos los pokemons.
+Después tengo que llamarlo y cargarlo en una variable para poder utilizar los datos con la
+clase Pokemon. Se elije una clave aleatoria del .json (un pokemon aleatorio) y SOLO ESE
+se le pasa a la clase Pokemon.
