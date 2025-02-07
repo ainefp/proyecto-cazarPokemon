@@ -24,18 +24,7 @@ if __name__ == "__main__":
         # Cargar los datos en un diccionario
         pokemons = json.load(archivo)
 
-    for clave in pokemons.items():
-        pass
-
     # Acceder a dichos datos
     for pokemon in pokemons:
         datos = pokemons[pokemon]
         print(f"Nombre: {datos['nombre']}\nTipo: {datos['tipo']}\nPeso: {datos['peso']}\n")
-    
-    # Acceder a uno en específico
-    pokemon_buscado = "pikachu"
-    for pokemon in pokemons:
-        datos = pokemons[pokemon_buscado]
-        if datos['nombre'] == "pikachu":
-            print(f"Has encontrado a {datos['nombre']}")
-            break
