@@ -32,3 +32,10 @@ Creado .json para crear un diccionario de diccionarios con todos los pokemons.
 Después tengo que llamarlo y cargarlo en una variable para poder utilizar los datos con la
 clase Pokemon. Se elije una clave aleatoria del .json (un pokemon aleatorio) y SOLO ESE
 se le pasa a la clase Pokemon.
+
+
+Para agregar pokemons a la pokedex, además de ir metiéndolos en la clase Pokedex dentro del bucle,
+puedo meterlos dentro de un json para guardarlos y al salir del bucle cargo el json en la clase,
+de esa manera si se vuelve a intentar acceder a ella una vez sales del programa, sigues teniendo
+tus pokemons registrados.
+NO SÉ SI FUNCIONA
