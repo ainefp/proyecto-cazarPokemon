@@ -1,3 +1,5 @@
+from Pista import Pista
+
 class Vista:
     SALIR = 4
 
@@ -22,3 +24,4 @@ if __name__ == "__main__":
     vista = Vista()
     print(vista.bienvenida())
     print(vista.mostrar_menu_opcion())
+    vista.pedir_letra()
