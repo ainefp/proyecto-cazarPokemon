@@ -5,7 +5,10 @@ from random import randint
 import json
 
 class Pista:
-    pista: list
+    pistas: list
+
+    def __init__(self):
+        self.pistas = []
 
     def generar_pista(self):
         pass
