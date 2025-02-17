@@ -17,18 +17,26 @@ class Vista:
             mostrar += f"{i+1}. {self.MENU[i]}\n"
         print(mostrar)
     
+    def pedir_opcion(self) -> int:
+        opcion = int(input("Introduce una opción: ")) - 1
+        while opcion < 0 or opcion > 4:
+            opcion = int(input("Por favor, introduce una opción válida: "))
+        
+        return opcion
+    
     def eleccion(self, eleccion) -> None:
-        print(f"\nTu elección ha sido: {self.MENU[eleccion - 1]}")
+        print(f"{f"Gracias por jugar! Hasta la próxima." if eleccion == self.SALIR else f"\nTu elección ha sido: {self.MENU[eleccion - 1]}"}")
     
     def aparecer_pokemon(self) -> None:
-        aparicion = ""
-        c1 = "Ha aparecido un pokemon salvaje"
-        c2 = "Adivina su nombre"
+        aparicion = f""
+        CARACTER = "-"
+        LARGO = 37
+        C1 = "Ha aparecido un pokemon salvaje"
+        C2 = "Adivina su nombre"
         
-        aparicion += "-" * 37 + "\n"
-        aparicion += " "*3 + c1 + "\n"
-        aparicion += " "*10 + c2 + "\n"
-        aparicion += "-" * 37 + "\n"
+        aparicion += f"\n{CARACTER * LARGO}\n"
+        aparicion += f"{C1.center(LARGO, ' ')}\n" + f"{C2.center(LARGO, ' ')}\n"
+        aparicion += f"{CARACTER * LARGO}\n"
             
         print(aparicion)
     
@@ -53,8 +61,8 @@ class Vista:
     def rendirse(self, pokemon) -> None:
         print(f"El pokemon es: {pokemon}. Más suerte la próxima vez!")
     
-    def salir(self) -> None:
-        print("Gracias por jugar! Hasta la próxima.")
+    # def salir(self) -> None:
+    #     print("Gracias por jugar! Hasta la próxima.")
 
     def generar_tablero(self, n_letras: int) -> None:
         print("_ " * n_letras + "\n")
