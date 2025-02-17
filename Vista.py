@@ -29,7 +29,7 @@ class Vista:
     def pedir_opcion_inicial(self) -> int:
         opcion = int(input("Introduce una opción: ")) - 1
         while opcion not in [0, 1]:
-            opcion = int(input("Por favor, introduce una opción válida: "))
+            opcion = int(input("Por favor, introduce una opción válida: ")) - 1
         
         return opcion
 
@@ -42,7 +42,7 @@ class Vista:
     def pedir_opcion_menu(self) -> int:
         opcion = int(input("Introduce una opción: ")) - 1
         while opcion < 0 or opcion > 4:
-            opcion = int(input("Por favor, introduce una opción válida: "))
+            opcion = int(input("Por favor, introduce una opción válida: ")) - 1
         
         return opcion
     
