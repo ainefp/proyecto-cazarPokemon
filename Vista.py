@@ -1,9 +1,13 @@
 from Pista import Pista
+from Contador_letras import contar_letras
 import random
 
 class Vista:
     SALIR = 4
-    MENU = ["Adivinar letra", "Adivinar palabra", "Pedir pista", "Me rindo! ¿Cuál es el pokemon?"]
+    MENU = []
+
+    def __init__(self):
+        self.MENU = ["Adivinar letra", "Adivinar palabra", "Pedir pista", "Me rindo! ¿Cuál es el pokemon?", "Salir"]
 
     def bienvenida(self) -> str:
         bienvenida = f"======================================\n  Bienvenid@ al juego Cazar Pokemons\n======================================"
@@ -20,20 +24,28 @@ class Vista:
         return accion
     
     def aparecer_pokemon(self) -> str:
-        aparicion = f"\nHa aparecido un pokemon salvaje! Trata de adivinar su nombre"
+        aparicion = f""
+        c1 = "Ha aparecido un pokemon salvaje"
+        c2 = "Adivina su nombre"
+        
+        caracteres = contar_letras(c1)
+        aparicion += "-" * 37 + "\n"
+        aparicion += " "*3 + c1 + "\n"
+        aparicion += " "*10 + c2 + "\n"
+        aparicion += "-" * 37 + "\n"
+            
         return aparicion
     
     def pedir_letra(self):
         return input("Introduce la letra: ")
     
+    def pedir_palabra(self):
+        return input("Introduce la palabra: ")
+    
     def mostrar_pista(self) -> None:
         pista = Pista()
         print(pista.generar_pista(random.randint(0, 3)))
-
-if __name__ == "__main__":
-    vista = Vista()
-    print(vista.bienvenida())
-    print(vista.mostrar_menu_opcion())
-    eleccion = int(input("Elige una opción: "))
-    print(vista.eleccion(eleccion))
-    print(vista.aparecer_pokemon())
+    
+    def rendirse(self, pokemon) -> str:
+        rendicion = f"El pokemon era: {pokemon}"
+        return rendicion
