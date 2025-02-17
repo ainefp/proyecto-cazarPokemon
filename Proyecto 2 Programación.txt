@@ -58,3 +58,8 @@ puedo meterlos dentro de un json para guardarlos y al salir del bucle cargo el j
 de esa manera si se vuelve a intentar acceder a ella una vez sales del programa, sigues teniendo
 tus pokemons registrados.
 NO SÉ SI FUNCIONA
+
+
+Para generar el tablero hacer una lista, se le añaden tantos huecos como caracteres tenga la palabra
+aleatoria elegida y otra con c/letra de la palabra en un hueco.
+Cuando se pida una letra, se va a comprobar si existe y se sustituye usando la posición.
