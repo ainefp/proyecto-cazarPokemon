@@ -1,19 +1,15 @@
 from Vista import Vista
+from Jugador import Jugador
 
 class Juego:
     vista = Vista()
+    jugador = Jugador(input("Introduce tu nombre: "))
 
     def __init__(self) -> None:
         self.vista = Vista()
 
 if __name__ == "__main__":
-    vista = Vista()
-    vista.bienvenida()
-    vista.mostrar_menu_opcion()
-    vista.pedir_letra()
-    vista.pedir_palabra()
-    vista.aparecer_pokemon()
-    vista.victoria("Pikachu")
-    vista.agregado_pokedex("Pikachu")
-
-    print(vista.volver_a_jugar())
+    juego = Juego()
+    juego.vista.bienvenida()
+    juego.vista.mostrar_menu_opcion()
+    
