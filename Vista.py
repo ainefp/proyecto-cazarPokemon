@@ -3,21 +3,43 @@ import random
 
 class Vista:
     SALIR = 4
-    MENU = []
+    menu = []
 
     def __init__(self) -> None:
-        self.MENU = ["Adivinar letra", "Adivinar palabra", "Pedir pista", "Me rindo! ¿Cuál es el pokemon?", "Salir"]
+        self.menu = ["Adivinar letra", "Adivinar palabra", "Pedir pista", "Me rindo! ¿Cuál es el pokemon?", "Salir"]
 
     def bienvenida(self):
-        print(f"\n======================================\n  Bienvenid@ al juego Cazar Pokemons\n======================================\n")
+        bienvenida = f""
+        CARACTER = "="
+        LARGO = 37
+        
+        bienvenida += f"\n{CARACTER * LARGO}\n"
+        bienvenida += f"{'Bienvenid@ a Cazar Pokemons'.center(LARGO, ' ')}\n"
+        bienvenida += f"{CARACTER * LARGO}\n"
+
+        print(bienvenida)
     
-    def mostrar_menu_opcion(self) -> None:
+    def mostrar_menu_inicial(self) -> None:
+        menu_incial = ["Comenzar juego", "Salir"]
         mostrar = f""
-        for i in range(len(self.MENU)):
-            mostrar += f"{i+1}. {self.MENU[i]}\n"
+        for i in range(len(menu_incial)):
+            mostrar += f"{i+1}. {menu_incial[i]}\n"
         print(mostrar)
     
-    def pedir_opcion(self) -> int:
+    def pedir_opcion_inicial(self) -> int:
+        opcion = int(input("Introduce una opción: ")) - 1
+        while opcion not in [0, 1]:
+            opcion = int(input("Por favor, introduce una opción válida: "))
+        
+        return opcion
+
+    def mostrar_menu_opcion(self) -> None:
+        mostrar = f""
+        for i in range(len(self.menu)):
+            mostrar += f"{i+1}. {self.menu[i]}\n"
+        print(mostrar)
+    
+    def pedir_opcion_menu(self) -> int:
         opcion = int(input("Introduce una opción: ")) - 1
         while opcion < 0 or opcion > 4:
             opcion = int(input("Por favor, introduce una opción válida: "))
@@ -25,7 +47,7 @@ class Vista:
         return opcion
     
     def eleccion(self, eleccion) -> None:
-        print(f"{f"Gracias por jugar! Hasta la próxima." if eleccion == self.SALIR else f"\nTu elección ha sido: {self.MENU[eleccion - 1]}"}")
+        print(f"{f"Gracias por jugar! Hasta la próxima." if eleccion == self.SALIR else f"\nTu elección ha sido: {self.menu[eleccion - 1]}"}")
     
     def aparecer_pokemon(self) -> None:
         aparicion = f""

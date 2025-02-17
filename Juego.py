@@ -32,8 +32,8 @@ class Juego:
 if __name__ == "__main__":
     juego = Juego()
     juego.vista.bienvenida()
-    juego.vista.mostrar_menu_opcion()
-    juego.vista.pedir_opcion()
+    juego.vista.mostrar_menu_inicial()
+    juego.vista.pedir_opcion_inicial()
     juego.cargar_pokemons()
     juego.vista.aparecer_pokemon()
     juego.vista.generar_tablero(contar_letras(juego.generar_palabra()))
