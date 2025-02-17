@@ -55,6 +55,9 @@ class Vista:
     
     def salir(self) -> None:
         print("Gracias por jugar! Hasta la próxima.")
+
+    def generar_tablero(self, n_letras: int) -> None:
+        print("_ " * n_letras + "\n")
     
     def victoria(self, nombre) -> None:
         print(f"FELICIDADES! El pokemon {nombre} ha sido capturado!\nAhora {nombre} será añadido a la pokedex (segundos de espera)")
