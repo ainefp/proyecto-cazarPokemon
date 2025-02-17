@@ -10,7 +10,7 @@ class Vista:
         self.MENU = ["Adivinar letra", "Adivinar palabra", "Pedir pista", "Me rindo! ¿Cuál es el pokemon?", "Salir"]
 
     def bienvenida(self) -> str:
-        bienvenida = f"======================================\n  Bienvenid@ al juego Cazar Pokemons\n======================================"
+        bienvenida = f"======================================\n  Bienvenid@ al juego Cazar Pokemons\n======================================\n"
         return bienvenida
     
     def mostrar_menu_opcion(self) -> str:
