@@ -8,8 +8,12 @@ class Juego:
 
 if __name__ == "__main__":
     vista = Vista()
-    print(vista.bienvenida())
-    print(vista.mostrar_menu_opcion())
-    # eleccion = int(input("Elige una opción: "))
-    # print(vista.eleccion(eleccion))
-    print(vista.aparecer_pokemon())
+    vista.bienvenida()
+    vista.mostrar_menu_opcion()
+    vista.pedir_letra()
+    vista.pedir_palabra()
+    vista.aparecer_pokemon()
+    vista.victoria("Pikachu")
+    vista.agregado_pokedex("Pikachu")
+
+    print(vista.volver_a_jugar())
