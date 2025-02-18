@@ -36,5 +36,7 @@ if __name__ == "__main__":
     juego.vista.pedir_opcion_inicial()
     juego.cargar_pokemons()
     juego.vista.aparecer_pokemon()
-    juego.vista.generar_tablero(contar_letras(juego.generar_palabra()))
-    
+    palabra_secreta = juego.generar_palabra()
+    juego.vista.generar_tablero_vacio(contar_letras(palabra_secreta))
+    juego.vista.generar_tablero_relleno(str(palabra_secreta))
+    juego.vista.actualizar_tablero("a", palabra_secreta)

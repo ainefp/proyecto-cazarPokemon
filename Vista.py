@@ -4,9 +4,13 @@ import random
 class Vista:
     SALIR = 4
     menu = []
+    tablero_vacio = list[str]
+    tablero_relleno = list[str]
 
     def __init__(self) -> None:
         self.menu = ["Adivinar letra", "Adivinar palabra", "Pedir pista", "Me rindo! ¿Cuál es el pokemon?", "Salir"]
+        self.tablero_vacio = []
+        self.tablero_relleno = []
 
     def bienvenida(self):
         bienvenida = f""
@@ -86,8 +90,27 @@ class Vista:
     # def salir(self) -> None:
     #     print("Gracias por jugar! Hasta la próxima.")
 
-    def generar_tablero(self, n_letras: int) -> None:
-        print("_ " * n_letras + "\n")
+    def generar_tablero_vacio(self, n_letras: int) -> None:
+        self.tablero_vacio = ["__"] * n_letras
+        for i in range(len(self.tablero_vacio)):
+            print(self.tablero_vacio[i], end=" ")
+        print()
+
+    def generar_tablero_relleno(self, palabra: str) -> None:
+        for i in range(len(palabra)):
+            self.tablero_relleno.append(palabra[i])
+            
+        for i in range(len(self.tablero_relleno)):
+            print(self.tablero_relleno[i], end=" ")
+        print()
+    
+    def actualizar_tablero(self, letra: str, palabra: str) -> None:
+        for i in range(len(palabra)):
+            if palabra[i] == letra:
+                self.tablero_vacio[i] = letra
+        
+        for i in range(len(self.tablero_vacio)):
+            print(self.tablero_vacio[i], end=" ")
     
     def victoria(self, nombre) -> None:
         print(f"FELICIDADES! El pokemon {nombre} ha sido capturado!\nAhora {nombre} será añadido a la pokedex (segundos de espera)")
