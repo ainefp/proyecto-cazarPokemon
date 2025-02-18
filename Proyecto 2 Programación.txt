@@ -1,0 +1,65 @@
+CAZAR POKEMON + AHORCADO
+
+*** IDEA DE FUNCIONAMIENTO BÁSICO ***
+menú y todo eso
+
+ha aparecido un pokemon!
+Intenta adivinar su nombre
+
+(antes de llamar, comprobar que no existe ya en la pokedex. Si existe: generar otro random)
+_ _ _ _ _ _
+
+[1. Decir letra]
+[2. Decir palabra]
+[3. Pedir pista]
+[4. Me rindo, dime el nombre]
+
+usuario: 3
+Has elegido pedir pista:
+* El 
+
+_ _ _ _ _ _
+
+¡FELICIDADES! Has adivinado el nombre, ahora {pokemon[nombre]} se añadirá a tu pokedex
+
+...
+
+{pokemon[nombre]} ha sido registrado correctamente
+    Vaya, parece que ha ocurrido un problema al intentar añadir a {pokemon[nombre]} a tu pokedex, lo sentimos :(
+
+¿Quieres seguir jugando? (s/n)
+
+ha aparecido ....
+_ _ _ _
+[1. Decir letra]
+[2. Decir palabra]
+[3. Pedir pista]
+[4. Me rindo, dime el nombre]
+
+
+
+
+*** ANOTACIONES ***
+MVC
+Separar clases en partes: VISTA y MODELO(tablero, jugador, etc) y CONTROLADOR(intermediario)
+Lo separo en archivos diferentes y luego importo con import
+
+
+*** IDEA ***
+
+Creado .json para crear un diccionario de diccionarios con todos los pokemons.
+Después tengo que llamarlo y cargarlo en una variable para poder utilizar los datos con la
+clase Pokemon. Se elije una clave aleatoria del .json (un pokemon aleatorio) y SOLO ESE
+se le pasa a la clase Pokemon.
+
+
+Para agregar pokemons a la pokedex, además de ir metiéndolos en la clase Pokedex dentro del bucle,
+puedo meterlos dentro de un json para guardarlos y al salir del bucle cargo el json en la clase,
+de esa manera si se vuelve a intentar acceder a ella una vez sales del programa, sigues teniendo
+tus pokemons registrados.
+NO SÉ SI FUNCIONA
+
+
+Para generar el tablero hacer una lista, se le añaden tantos huecos como caracteres tenga la palabra
+aleatoria elegida y otra con c/letra de la palabra en un hueco.
+Cuando se pida una letra, se va a comprobar si existe y se sustituye usando la posición.

@@ -1,0 +1,639 @@
+{
+    "bulbasaur": {
+        "nombre": "bulbasaur",
+        "tipo": "planta/veneno",
+        "tamanho": 0.7,
+        "peso": 6.9,
+        "n_pokedex": 1
+    },
+
+    "ivysaur": {
+        "nombre": "ivysaur",
+        "tipo": "planta/veneno",
+        "tamanho": 1,
+        "peso": 13,
+        "n_pokedex": 2
+    },
+
+    "venusaur": {
+        "nombre": "venusaur",
+        "tipo": "planta/veneno",
+        "tamanho": 2.4,
+        "peso": 155.5,
+        "n_pokedex": 3
+    },
+
+    "charmander": {
+        "nombre": "charmander",
+        "tipo": "fuego",
+        "tamanho": 0.6,
+        "peso": 8.5,
+        "n_pokedex": 4
+    },
+
+    "charmeleon": {
+        "nombre": "charmeleon",
+        "tipo": "fuego",
+        "tamanho": 1.1,
+        "peso": 19,
+        "n_pokedex": 5
+    },
+
+    "charizard": {
+        "nombre": "charizard",
+        "tipo": "fuego/volador",
+        "tamanho": 1.7,
+        "peso": 90.5,
+        "n_pokedex": 6
+    },
+
+    "squirtle": {
+        "nombre": "squirtle",
+        "tipo": "agua",
+        "tamanho": 0.5,
+        "peso": 9,
+        "n_pokedex": 7
+    },
+
+    "wartortle": {
+        "nombre": "wartortle",
+        "tipo": "agua",
+        "tamanho": 1,
+        "peso": 22.5,
+        "n_pokedex": 8
+    },
+
+    "blastoise": {
+        "nombre": "blastoise",
+        "tipo": "agua",
+        "tamanho": 1.6,
+        "peso": 85.5,
+        "n_pokedex": 9
+    },
+    
+    "caterpie": {
+        "nombre": "caterpie",
+        "tipo": "bicho",
+        "tamanho": 0.3,
+        "peso": 2.9,
+        "n_pokedex": 10
+    },
+
+    "metapod": {
+        "nombre": "metapod",
+        "tipo": "bicho",
+        "tamanho": 0.7,
+        "peso": 9.9,
+        "n_pokedex": 11
+    },
+
+    "butterfree": {
+        "nombre": "butterfree",
+        "tipo": "bicho/volador",
+        "tamanho": 1.1,
+        "peso": 32,
+        "n_pokedex": 12
+    },
+
+    "weedle": {
+        "nombre": "weedle",
+        "tipo": "bicho/veneno",
+        "tamanho": 0.3,
+        "peso": 3.2,
+        "n_pokedex": 13
+    },
+
+    "kakuna": {
+        "nombre": "kakuna",
+        "tipo": "bicho/veneno",
+        "tamanho": 0.6,
+        "peso": 10,
+        "n_pokedex": 14
+    },
+
+    "beedril": {
+        "nombre": "beedril",
+        "tipo": "bicho/veneno",
+        "tamanho": 1,
+        "peso": 29.5,
+        "n_pokedex": 15
+    },
+
+    "pidgey": {
+        "nombre": "pidgey",
+        "tipo": "normal/volador",
+        "tamanho": 0.3,
+        "peso": 1.8,
+        "n_pokedex": 16
+    },
+
+    "pidgeotto": {
+        "nombre": "pidgeotto",
+        "tipo": "normal/volador",
+        "tamanho": 1.1,
+        "peso": 30.0,
+        "n_pokedex": 17
+    },
+
+    "pidgeot": {
+        "nombre": "pidgeot",
+        "tipo": "normal/volador",
+        "tamanho": 1.5,
+        "peso": 39.5,
+        "n_pokedex": 18
+    },
+
+    "rattata": {
+        "nombre": "rattata",
+        "tipo": "normal",
+        "tamanho": 0.3,
+        "peso": 3.5,
+        "n_pokedex": 19
+    },
+
+    "raticate": {
+        "nombre": "raticate",
+        "tipo": "normal",
+        "tamanho": 0.7,
+        "peso": 18.5,
+        "n_pokedex": 20
+    },
+
+    "spearow": {
+        "nombre": "spearow",
+        "tipo": "normal/volador",
+        "tamanho": 0.3,
+        "peso": 2.0,
+        "n_pokedex": 21
+    },
+
+    "fearow": {
+        "nombre": "fearow",
+        "tipo": "normal/volador",
+        "tamanho": 1.2,
+        "peso": 38.0,
+        "n_pokedex": 22
+    },
+
+    "ekans": {
+        "nombre": "ekans",
+        "tipo": "veneno",
+        "tamanho": 2.0,
+        "peso": 6.9,
+        "n_pokedex": 23
+    },
+
+    "arbok": {
+        "nombre": "arbok",
+        "tipo": "veneno",
+        "tamanho": 3.5,
+        "peso": 65.0,
+        "n_pokedex": 24
+    },
+    "pikachu": {
+        "nombre": "pikachu",
+        "tipo": "eléctrico",
+        "tamanho": 0.4,
+        "peso": 6.0,
+        "n_pokedex": 25
+    },
+
+    "raichu": {
+        "nombre": "raichu",
+        "tipo": "eléctrico",
+        "tamanho": 0.8,
+        "peso": 30.0,
+        "n_pokedex": 26
+    },
+
+    "sandshrew": {
+        "nombre": "sandshrew",
+        "tipo": "tierra",
+        "tamanho": 0.6,
+        "peso": 12.0,
+        "n_pokedex": 27
+    },
+
+    "sandslash": {
+        "nombre": "sandslash",
+        "tipo": "tierra",
+        "tamanho": 1.0,
+        "peso": 29.5,
+        "n_pokedex": 28
+    },
+
+    "nidoran_h": {
+        "nombre": "nidoran_h",
+        "tipo": "veneno",
+        "tamanho": 0.4,
+        "peso": 7.0,
+        "n_pokedex": 29
+    },
+
+    "nidorina": {
+        "nombre": "nidorina",
+        "tipo": "tierra",
+        "tamanho": 0.8,
+        "peso": 20.0,
+        "n_pokedex": 30
+    },
+
+    "nidoqueen": {
+        "nombre": "nidoqueen",
+        "tipo": "veneno/tierra",
+        "tamanho": 1.3,
+        "peso": 60.0,
+        "n_pokedex": 31
+    },
+
+    "nidoran_m": {
+        "nombre": "nidoran_m",
+        "tipo": "tierra",
+        "tamanho": 0.5,
+        "peso": 9.0,
+        "n_pokedex": 32
+    },
+
+    "nidorino": {
+        "nombre": "nidorino",
+        "tipo": "tierra",
+        "tamanho": 0.9,
+        "peso": 19.5,
+        "n_pokedex": 33
+    },
+
+    "nidoking": {
+        "nombre": "nidoking",
+        "tipo": "veneno/tierra",
+        "tamanho": 1.4,
+        "peso": 62.0,
+        "n_pokedex": 34
+    },
+
+    "clefairy": {
+        "nombre": "clefairy",
+        "tipo": "hada",
+        "tamanho": 0.6,
+        "peso": 7.5,
+        "n_pokedex": 35
+    },
+
+    "clefable": {
+        "nombre": "clefable",
+        "tipo": "hada",
+        "tamanho": 1.3,
+        "peso": 40.0,
+        "n_pokedex": 36
+    },
+
+    "vulpix": {
+        "nombre": "vulpix",
+        "tipo": "fuego",
+        "tamanho": 0.6,
+        "peso": 9.9,
+        "n_pokedex": 37
+    },
+
+    "ninetales": {
+        "nombre": "ninetales",
+        "tipo": "fuego",
+        "tamanho": 1.1,
+        "peso": 19.9,
+        "n_pokedex": 38
+    },
+
+    "jigglypuff": {
+        "nombre": "jigglypuff",
+        "tipo": "normal/hada",
+        "tamanho": 0.5,
+        "peso": 5.5,
+        "n_pokedex": 39
+    },
+
+    "wigglytuff": {
+        "nombre": "wigglytuff",
+        "tipo": "normal/hada",
+        "tamanho": 1.0,
+        "peso": 12.0,
+        "n_pokedex": 40
+    },
+    
+    "zubat": {
+        "nombre": "zubat",
+        "tipo": "veneno/volador",
+        "tamanho": 0.8,
+        "peso": 7.5,
+        "n_pokedex": 41
+    },
+
+    "golbat": {
+        "nombre": "golbat",
+        "tipo": "veneno/volador",
+        "tamanho": 1.6,
+        "peso": 55.0,
+        "n_pokedex": 42
+    },
+
+    "oddish": {
+        "nombre": "oddish",
+        "tipo": "planta/veneno",
+        "tamanho": 0.5,
+        "peso": 5.4,
+        "n_pokedex": 43
+    },
+
+    "gloom": {
+        "nombre": "gloom",
+        "tipo": "planta/veneno",
+        "tamanho": 0.8,
+        "peso": 8.6,
+        "n_pokedex": 44
+    },
+
+    "vileplume": {
+        "nombre": "vileplume",
+        "tipo": "planta/veneno",
+        "tamanho": 1.2,
+        "peso": 18.6,
+        "n_pokedex": 45
+    },
+
+    "paras": {
+        "nombre": "paras",
+        "tipo": "bicho/planta",
+        "tamanho": 0.3,
+        "peso": 5.4,
+        "n_pokedex": 46
+    },
+
+    "parasect": {
+        "nombre": "parasect",
+        "tipo": "bicho/planta",
+        "tamanho": 1.0,
+        "peso": 29.5,
+        "n_pokedex": 47
+    },
+
+    "venonat": {
+        "nombre": "venonat",
+        "tipo": "bicho/veneno",
+        "tamanho": 1.0,
+        "peso": 30.0,
+        "n_pokedex": 48
+    },
+
+    "venomoth": {
+        "nombre": "venomoth",
+        "tipo": "bicho/veneno",
+        "tamanho": 1.5,
+        "peso": 12.5,
+        "n_pokedex": 49
+    },
+
+    "diglett": {
+        "nombre": "diglett",
+        "tipo": "tierra",
+        "tamanho": 0.2,
+        "peso": 0.8,
+        "n_pokedex": 50
+    },
+
+    "dugtrio": {
+        "nombre": "dugtrio",
+        "tipo": "tierra",
+        "tamanho": 0.7,
+        "peso": 33.3,
+        "n_pokedex": 51
+    },
+    "meowth": {
+        "nombre": "meowth",
+        "tipo": "normal",
+        "tamanho": 0.4,
+        "peso": 4.2,
+        "n_pokedex": 52
+    },
+
+    "persian": {
+        "nombre": "persian",
+        "tipo": "normal",
+        "tamanho": 1.0,
+        "peso": 32.0,
+        "n_pokedex": 53
+    },
+
+    "psyduck": {
+        "nombre": "psyduck",
+        "tipo": "agua",
+        "tamanho": 0.8,
+        "peso": 19.6,
+        "n_pokedex": 54
+    },
+
+    "golduck": {
+        "nombre": "golduck",
+        "tipo": "agua",
+        "tamanho": 1.7,
+        "peso": 76.6,
+        "n_pokedex": 55
+    },
+
+    "mankey": {
+        "nombre": "mankey",
+        "tipo": "lucha",
+        "tamanho": 0.5,
+        "peso": 28.0,
+        "n_pokedex": 56
+    },
+
+    "primeape": {
+        "nombre": "primeape",
+        "tipo": "lucha",
+        "tamanho": 1.0,
+        "peso": 32.0,
+        "n_pokedex": 57
+    },
+
+    "growlithe": {
+        "nombre": "growlithe",
+        "tipo": "fuego",
+        "tamanho": 0.7,
+        "peso": 19.0,
+        "n_pokedex": 58
+    },
+
+    "arcanine": {
+        "nombre": "arcanine",
+        "tipo": "fuego",
+        "tamanho": 1.9,
+        "peso": 155.0,
+        "n_pokedex": 59
+    },
+
+    "poliwag": {
+        "nombre": "poliwag",
+        "tipo": "agua",
+        "tamanho": 0.6,
+        "peso": 12.4,
+        "n_pokedex": 60
+    },
+
+    "poliwhirl": {
+        "nombre": "poliwhirl",
+        "tipo": "agua",
+        "tamanho": 1,
+        "peso": 20,
+        "n_pokedex": 61
+    },
+
+    "poliwrath": {
+        "nombre": "poliwrath",
+        "tipo": "agua/lucha",
+        "tamanho": 1.3,
+        "peso": 54,
+        "n_pokedex": 62
+    },
+
+    "abra": {
+        "nombre": "abra",
+        "tipo": "psíquico",
+        "tamanho": 0.9,
+        "peso": 19.5,
+        "n_pokedex": 63
+    },
+
+    "kadabra": {
+        "nombre": "kadabra",
+        "tipo": "psíquico",
+        "tamanho": 1.3,
+        "peso": 56.5,
+        "n_pokedex": 64
+    },
+
+    "alakazam": {
+        "nombre": "alakazam",
+        "tipo": "psíquico",
+        "tamanho": 1.5,
+        "peso": 48,
+        "n_pokedex": 65
+    },
+
+    "machop": {
+        "nombre": "machop",
+        "tipo": "lucha",
+        "tamanho": 0.8,
+        "peso": 19.5,
+        "n_pokedex": 66
+    },
+
+    "machoke": {
+        "nombre": "machoke",
+        "tipo": "lucha",
+        "tamanho": 1.5,
+        "peso": 70.5,
+        "n_pokedex": 67
+    },
+
+    "machamp": {
+        "nombre": "machamp",
+        "tipo": "lucha",
+        "tamanho": 1.6,
+        "peso": 130,
+        "n_pokedex": 68
+    },
+
+    "bellsprout": {
+        "nombre": "bellsprout",
+        "tipo": "planta/veneno",
+        "tamanho": 0.7,
+        "peso": 4,
+        "n_pokedex": 69
+    },
+
+    "weepinbell": {
+        "nombre": "weepinbell",
+        "tipo": "planta/veneno",
+        "tamanho": 1,
+        "peso": 6.4,
+        "n_pokedex": 70
+    },
+
+    "victreebel": {
+        "nombre": "victreebel",
+        "tipo": "planta/veneno",
+        "tamanho": 1.7,
+        "peso": 15.5,
+        "n_pokedex": 71
+    },
+
+    "tentacool": {
+        "nombre": "tentacool",
+        "tipo": "agua/veneno",
+        "tamanho": 0.9,
+        "peso": 45.5,
+        "n_pokedex": 72
+    },
+
+    "tentacruel": {
+        "nombre": "tentacruel",
+        "tipo": "agua/veneno",
+        "tamanho": 1.6,
+        "peso": 55,
+        "n_pokedex": 73
+    },
+
+    "geodude": {
+        "nombre": "geodude",
+        "tipo": "roca/tierra",
+        "tamanho": 0.4,
+        "peso": 20,
+        "n_pokedex": 74
+    },
+
+    "graveler": {
+        "nombre": "graveler",
+        "tipo": "roca/tierra",
+        "tamanho": 1,
+        "peso": 105,
+        "n_pokedex": 75
+    },
+
+    "golem": {
+        "nombre": "golem",
+        "tipo": "roca/tierra",
+        "tamanho": 1.4,
+        "peso": 300,
+        "n_pokedex": 76
+    },
+
+    "ponyta": {
+        "nombre": "ponyta",
+        "tipo": "fuego",
+        "tamanho": 1.0,
+        "peso": 30.0,
+        "n_pokedex": 77
+    },
+
+    "rapidash": {
+        "nombre": "rapidash",
+        "tipo": "fuego",
+        "tamanho": 1.7,
+        "peso": 95.0,
+        "n_pokedex": 78
+    },
+
+    "slowpoke": {
+        "nombre": "slowpoke",
+        "tipo": "agua/psíquico",
+        "tamanho": 1.2,
+        "peso": 36.0,
+        "n_pokedex": 79
+    },
+    
+    "slowbro": {
+        "nombre": "slowbro",
+        "tipo": "agua/psíquico",
+        "tamanho": 1.6,
+        "peso": 78.5,
+        "n_pokedex": 80
+    }
+}
