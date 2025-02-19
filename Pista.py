@@ -20,6 +20,6 @@ class Pista:
                        f"El pokemon mide {pokemon_aleatorio['tamanho']} m",
                        f"El número de pokedex del pokemon es {pokemon_aleatorio['n_pokedex']}"]
 
-    def generar_pista(self, n_frase: int) -> str:
+    def pista(self, n_frase: int) -> str:
         resultado = self.pistas[n_frase]
         return resultado
