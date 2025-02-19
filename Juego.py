@@ -42,12 +42,18 @@ class Juego:
         return self.tablero_r
     
     def actualizar_tablero(self, letra: str, palabra: str) -> None:
-        for i in range(len(palabra)):
-            if palabra[i] == letra:
-                self.tablero_v[i] = letra
+        if len(letra) == 1:
+            for i in range(len(palabra)):
+                if palabra[i] == letra:
+                    self.tablero_v[i] = letra
+        else:
+            if palabra == letra:
+                self.tablero_v = self.tablero_r
         
-        for i in range(len(self.tablero_v)):
-            print(self.tablero_v[i], end=" ")
+        return self.tablero_v
+    
+    def comprobar_resultado(self):
+        return self.tablero_v == self.tablero_r
 
 if __name__ == "__main__":
     # Ejemplo de ejecución:
@@ -57,14 +63,15 @@ if __name__ == "__main__":
     juego.vista.pedir_opcion_inicial()
     juego.cargar_pokemons()
     juego.vista.aparecer_pokemon()
-    palabra_secreta = "pikachu" #juego.generar_palabra()
+    palabra_secreta = juego.generar_palabra()
     tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
     juego.vista.imprimir_tablero(tablero_vacio)
     tablero_relleno = juego.tablero_relleno(palabra_secreta)
-    juego.vista.imprimir_tablero(tablero_relleno)
     
-    
+    partida_ganada = False
     # Para comprobar que has ganado se puede hacer:
-    while juego.tablero_vacio(contar_letras(palabra_secreta)) != juego.tablero_relleno(palabra_secreta):
-        palabra = juego.vista.pedir_letra()
-        juego.actualizar_tablero(palabra, palabra_secreta)
+    while not partida_ganada:
+        palabra = juego.vista.pedir_palabra()
+        act = juego.actualizar_tablero(palabra, palabra_secreta)
+        juego.vista.imprimir_tablero(act)
+        partida_ganada = juego.comprobar_resultado()
