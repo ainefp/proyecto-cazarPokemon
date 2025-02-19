@@ -33,7 +33,10 @@ class Juego:
     def generar_palabra(self) -> str:
         return self.biblioteca[randint(1, len(self.biblioteca))].nombre
     
-    def generar_pista(self) -> str:
+    def generar_pista(self, palabra_secreta: str) -> str:
+        pista = Pista()
+        pista.pista(palabra_secreta, randint(0, 3))
+        return pista
 
     def tablero_vacio(self, n_letras: int) -> list:
         self.tablero_v = ["__"] * n_letras
@@ -70,7 +73,7 @@ if __name__ == "__main__":
     tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
     juego.vista.imprimir_tablero(tablero_vacio)
     tablero_relleno = juego.tablero_relleno(palabra_secreta)
-    pista = Pista()
+    print(juego.generar_pista(palabra_secreta))
     
     partida_ganada = False
     # Para comprobar que has ganado se puede hacer:

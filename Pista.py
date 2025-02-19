@@ -5,21 +5,28 @@ class Pista:
     pistas: list
 
     def __init__(self):
+        self.pistas = [f"El pokemon es de tipo",
+                       f"El pokemon pesa",
+                       f"El pokemon mide",
+                       f"Su número de pokedex es"]
+
+    def pista(self, palabra_secreta: str, n_frase: int) -> str:
         with open('Generar_pokemon.json', 'r') as archivo:
-            # Cargar los datos en un diccionario
             pokemons = json.load(archivo)
-    
-        # Elegir una clave aleatoria del diccionario
-        clave_aleatoria = random.choice(list(pokemons.keys()))
+        datos = pokemons[f"{palabra_secreta}"]
 
-        # Cargar los datos del Pokémon aleatorio en una variable
-        pokemon_aleatorio = pokemons[clave_aleatoria]
-
-        self.pistas = [f"El pokemon es de tipo {pokemon_aleatorio['tipo']}",
-                       f"El pokemon pesa {pokemon_aleatorio['peso']} kg",
-                       f"El pokemon mide {pokemon_aleatorio['tamanho']} m",
-                       f"El número de pokedex del pokemon es {pokemon_aleatorio['n_pokedex']}"]
-
-    def pista(self, n_frase: int) -> str:
         resultado = self.pistas[n_frase]
+        match resultado:
+            case "El pokemon es de tipo":
+                resultado += f" {datos['tipo']}"
+            case "El pokemon pesa":
+                resultado += f" {datos['peso']} kg"
+            case "El pokemon mide":
+                resultado += f" {datos['tamanho']} m"
+            case _:
+                resultado += f" {datos['n_pokedex']}"
+
         return resultado
+    
+pista = Pista()
+print(pista.pista('Bulbasaur', random.randint(0, 3)))
