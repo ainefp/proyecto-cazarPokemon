@@ -61,7 +61,7 @@ if __name__ == "__main__":
     juego = Juego()
     juego.vista.bienvenida()
     juego.vista.mostrar_menu_inicial()
-    juego.vista.pedir_opcion_inicial()
+    juego.vista.mostrar_menu_opcion()
     juego.cargar_pokemons()
     juego.vista.aparecer_pokemon()
     palabra_secreta = juego.generar_palabra()
@@ -72,10 +72,13 @@ if __name__ == "__main__":
     
     partida_ganada = False
     # Para comprobar que has ganado se puede hacer:
-    while not partida_ganada:
-        palabra = juego.vista.pedir_palabra()
-        act = juego.actualizar_tablero(palabra, palabra_secreta)
-        juego.vista.imprimir_tablero(act)
-        partida_ganada = juego.comprobar_resultado()
+    # while not partida_ganada:
+    #     palabra = juego.vista.pedir_palabra()
+    #     act = juego.actualizar_tablero(palabra, palabra_secreta)
+    #     juego.vista.imprimir_tablero(act)
+    #     partida_ganada = juego.comprobar_resultado()
     
     juego.vista.victoria(palabra_secreta)
+    juego.vista.mostrar_pokemons_capturados()
+
+    #rendirse
