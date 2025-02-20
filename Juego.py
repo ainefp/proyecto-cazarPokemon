@@ -58,13 +58,18 @@ class Juego:
     def comprobar_resultado(self) -> bool:
         return self.tablero_v == self.tablero_r
     
-    def agregar_pokedex(self, pokemon: str) -> None:
-        # try:
-            pokemon = self.biblioteca[pokemon]
-            self.pokedex.agregar_pokemon(pokemon)
-            self.vista.agregado_pokedex()
-        # except:
-        #     self.vista.error_agregado()
+    def agregar_pokedex(self, nombre_pokemon: str) -> None:
+        try:
+            with open('Generar_pokemon.json', 'r') as archivo:
+                pokemons = json.load(archivo)
+            for pokemon in pokemons:
+                datos = pokemons[pokemon]
+                agregar_pokemon = Pokemon(datos['nombre'], contar_letras(datos['nombre']), datos['tipo'], datos['tamanho'], datos['peso'], datos['n_pokedex'])
+                if agregar_pokemon.nombre == nombre_pokemon:
+                    self.pokedex.agregar_pokemon(agregar_pokemon, nombre_pokemon)
+                    self.vista.agregado_pokedex(nombre_pokemon)            
+        except:
+            self.vista.error_agregado()
 
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
@@ -88,7 +93,5 @@ if __name__ == "__main__":
     #     partida_ganada = juego.comprobar_resultado()
     
     juego.vista.victoria(palabra_secreta)
-    # juego.vista.mostrar_pokemons_capturados()
-    juego.agregar_pokedex(palabra_secreta)
 
     #rendirse
