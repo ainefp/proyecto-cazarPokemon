@@ -59,12 +59,12 @@ class Juego:
         return self.tablero_v == self.tablero_r
     
     def agregar_pokedex(self, pokemon: str) -> None:
-        try:
+        # try:
             pokemon = self.biblioteca[pokemon]
             self.pokedex.agregar_pokemon(pokemon)
             self.vista.agregado_pokedex()
-        except:
-            self.vista.error_agregado()
+        # except:
+        #     self.vista.error_agregado()
 
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
