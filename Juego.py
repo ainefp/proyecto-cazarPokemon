@@ -1,6 +1,7 @@
 from Pokemon import Pokemon
 from Contador_letras import contar_letras
 from Biblioteca import Biblioteca
+from Pokedex import Pokedex
 from Vista import Vista
 from Pista import Pista
 from Jugador import Jugador
@@ -11,6 +12,7 @@ class Juego:
     vista = Vista
     jugador = Jugador
     biblioteca = Biblioteca
+    pokedex = Pokedex
     tablero_v = list[str]
     tablero_r = list[str]
 
@@ -55,6 +57,14 @@ class Juego:
     
     def comprobar_resultado(self) -> bool:
         return self.tablero_v == self.tablero_r
+    
+    def agregar_pokedex(self, pokemon: str) -> None:
+        try:
+            pokemon = self.biblioteca[pokemon]
+            self.pokedex.agregar_pokemon(pokemon)
+            self.vista.agregado_pokedex()
+        except:
+            self.vista.error_agregado()
 
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
@@ -68,7 +78,6 @@ if __name__ == "__main__":
     tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
     juego.vista.imprimir_tablero(tablero_vacio)
     tablero_relleno = juego.tablero_relleno(palabra_secreta)
-    juego.vista.mostrar_pista(palabra_secreta)
     
     partida_ganada = False
     # Para comprobar que has ganado se puede hacer:
@@ -79,6 +88,7 @@ if __name__ == "__main__":
     #     partida_ganada = juego.comprobar_resultado()
     
     juego.vista.victoria(palabra_secreta)
-    juego.vista.mostrar_pokemons_capturados()
+    # juego.vista.mostrar_pokemons_capturados()
+    juego.agregar_pokedex(palabra_secreta)
 
     #rendirse
