@@ -47,7 +47,7 @@ class Vista:
         return opcion
     
     def eleccion(self, eleccion) -> None:
-        print(f"{f"Gracias por jugar! Hasta la próxima." if eleccion == self.SALIR else f"\nTu elección ha sido: {self.menu[eleccion - 1]}"}")
+        print(f"{f"\nGracias por jugar! Hasta la próxima." if eleccion == self.SALIR else f"\nTu elección ha sido: {self.menu[eleccion - 1]}"}")
     
     def aparecer_pokemon(self) -> None:
         aparicion = f""
@@ -63,23 +63,23 @@ class Vista:
         print(aparicion)
     
     def pedir_letra(self) -> str:
-        letra = input("Introduce la letra: ")
+        letra = input("\nIntroduce la letra: ")
         while len(letra) != 1 or not letra.isalpha():
             letra = input("Por favor, introduce una letra: ")
         
         return letra
     
     def pedir_palabra(self) -> str:
-        palabra = input("Introduce la palabra: ")
+        palabra = input("\nIntroduce la palabra: ")
         while not palabra.isalpha():
             palabra = input("Por favor, introduce una palabra: ")
 
         return palabra
     
-    def mostrar_pista(self) -> None:
+    def mostrar_pista(self, palabra_secreta: str) -> None:
         pista = Pista()
-        print(pista.generar_pista(random.randint(0, 3)))
-    
+        print(pista.pista(palabra_secreta, random.randint(0, 3)))
+        
     def rendirse(self, pokemon) -> None:
         print(f"El pokemon es: {pokemon}. Más suerte la próxima vez!")
     
@@ -92,16 +92,16 @@ class Vista:
         print()
     
     def victoria(self, nombre) -> None:
-        print(f"FELICIDADES! El pokemon {nombre} ha sido capturado!\nAhora {nombre} será añadido a la pokedex (segundos de espera)")
+        print(f"\nFELICIDADES! El pokemon {nombre} ha sido capturado!\nAhora {nombre} será añadido a la pokedex (segundos de espera)")
     
     def derrota(self, nombre) -> None:
-        print(f"El nombre del pokemon era: {nombre}\nHas perdido, te deseo más suerte en la próxima captura.")
+        print(f"\nEl nombre del pokemon era: {nombre}\nHas perdido, te deseo más suerte en la próxima captura.")
     
     def agregado_pokedex(self, nombre) -> None:
-        print(f"{nombre} ha sido registrado correctamente :)")
+        print(f"\n{nombre} ha sido registrado correctamente :)")
 
     def volver_a_jugar(self) -> bool:
-        respuesta = input("¿Quieres seguir jugando? (s/n): ").lower()
+        respuesta = input("\n¿Quieres seguir jugando? (s/n): ").lower()
 
         while respuesta != "s" and respuesta != "n":
             respuesta = input("Por favor, introduzca una respuesta válida (s/n): ").lower()

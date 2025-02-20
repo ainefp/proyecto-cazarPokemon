@@ -10,23 +10,20 @@ class Pista:
                        f"El pokemon mide",
                        f"Su número de pokedex es"]
 
-    def pista(self, palabra_secreta: str, n_frase: int) -> str:
+    def pista(self, palabra_secreta: str, n_frase: int) -> None:
         with open('Generar_pokemon.json', 'r') as archivo:
             pokemons = json.load(archivo)
-        datos = pokemons[f"{palabra_secreta}"]
+        datos = pokemons[palabra_secreta]
 
         resultado = self.pistas[n_frase]
-        match resultado:
-            case "El pokemon es de tipo":
+        match n_frase:
+            case 0:
                 resultado += f" {datos['tipo']}"
-            case "El pokemon pesa":
+            case 1:
                 resultado += f" {datos['peso']} kg"
-            case "El pokemon mide":
+            case 2:
                 resultado += f" {datos['tamanho']} m"
-            case _:
+            case 3:
                 resultado += f" {datos['n_pokedex']}"
 
-        return resultado
-    
-pista = Pista()
-print(pista.pista('Bulbasaur', random.randint(0, 3)))
+        print(resultado)
