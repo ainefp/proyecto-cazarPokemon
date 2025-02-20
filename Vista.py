@@ -1,6 +1,7 @@
 from Pista import Pista
 from time import sleep
 import random
+import json
 
 class Vista:
     SALIR = 4
@@ -120,18 +121,30 @@ class Vista:
 
         return respuesta == "s"
     
-    def mostrar_pokemons_capturados(self, pokemons_capturados) -> str:
+    def mostrar_pokemons_capturados(self, nombre_usuario) -> str:
         registro = f""
         CARACTER = "-"
         LARGO = 37
         frase = "Registro de Pokemons capturados"
-        
-        registro += f"\n{CARACTER * LARGO}\n"
-        registro += f"{frase.center(LARGO, ' ')}\n"
-        registro += f"{CARACTER * LARGO}\n"
-        registro += f"Total de Pokemons capturados: {len(pokemons_capturados)}\n"
-        for pokemon in pokemons_capturados:
-            registro += f"{pokemon}\n"
 
-        print(registro)
+        try:
+            # Cargo los datos del json en una variable
+            with open(f'{nombre_usuario}_pokedex.json', 'r') as archivo:  # modo lectura
+                pokedex = json.load(archivo)
+
+                #Contamos la cantidad de pokemons que hay
+                cantidad = len(pokedex)
+                print(cantidad)
+
+                registro += f"\n{CARACTER * LARGO}\n"
+                registro += f"{frase.center(LARGO, ' ')}\n"
+                registro += f"{CARACTER * LARGO}\n"
+                registro += f"Total de Pokemons capturados: {cantidad}\n"
+                for pokemon in pokedex:
+                    registro += f"{pokemon}\n"
+
+                print(registro)
+
+        except FileNotFoundError:
+            print("Aún no has capturado ningún pokemon")
         # Mejorar esto

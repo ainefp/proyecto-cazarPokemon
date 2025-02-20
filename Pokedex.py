@@ -48,3 +48,5 @@ class Pokedex:
         # Cargo los datos en el archivo json
         with open(f'{nombre_usuario}_pokedex.json', 'w') as archivo:
             json.dump(pokedex, archivo, indent=4)
+
+# Aún no funciona del todo
