@@ -4,33 +4,15 @@ import json
 # Además, añado los pokemons a un json para que se queden guardados una vez salgas del programa,
 #   de esta forma, la pokedex se mantiene guardada y puedes volver a acceder a ella en futuras partidas.
 class Pokedex:
-    registro = list
-
-    def __init__(self):
-        self.registro = []
-
-    def generar_pokedex(self, nombre_usuario: str) -> None:
-        # Genero un diccionario vacío
-        pokedex = {}
-
-        # Registro el nombre de usuario para no sobreescribir datos
-        self.registro.append(nombre_usuario)
-
-        if nombre_usuario in self.registro:
-            return None
-        else:
-            # Cargo el diccionario vacío en un archivo json
-            # Si no existe el archivo, lo crea
-            with open(f'{nombre_usuario}_pokedex.json', 'w') as archivo:  # modo escritura
-                json.dump(pokedex, archivo, indent=4)
-
     def agregar_pokemon(self, pokemon: Pokemon, nombre_usuario: str) -> None:
         try:
-            # Cargo los datos del json en una variable
+            # Intento cargar los datos del json en una variable, si existe, lo crea
             with open(f'{nombre_usuario}_pokedex.json', 'r') as archivo:  # modo lectura
                 pokedex = json.load(archivo)
+
         except FileNotFoundError:
-            pokedex = self.generar_pokedex(nombre_usuario)
+            # Crea un diccionario vacío
+            pokedex = {}
         
         nombre = pokemon.nombre
         
@@ -50,8 +32,3 @@ class Pokedex:
         # Cargo los datos en el archivo json
         with open(f'{nombre_usuario}_pokedex.json', 'w') as archivo:
             json.dump(pokedex, archivo, indent=4)
-
-# Aún no funciona del todo
-# pokedex = Pokedex()
-# pokemon = Pokemon("pikachu", 5, "electr", 2, 3, 34)
-# pokedex.agregar_pokemon(pokemon, 'proba')
