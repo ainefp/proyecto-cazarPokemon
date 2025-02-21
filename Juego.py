@@ -23,7 +23,6 @@ class Juego:
         self.tablero_v = []
         self.tablero_r = []
     
-    #metodo privado
     def cargar_pokemons(self) -> None:
         with open('Generar_pokemon.json', 'r') as archivo:
             pokemons = json.load(archivo)
@@ -80,52 +79,99 @@ class Juego:
         except:
             self.vista.error_agregado()
 
-    def comienzo(self):
+    def comienzo(self) -> bool:
+        comenzar = True
+        if comenzar == False:
+            return comenzar
         self.vista.bienvenida()
         eleccion = self.vista.mostrar_menu_inicial()
-        if eleccion == "salir":
-            self.finalizar_juego()
 
-    def jugar_ronda(self):
+        if eleccion == "salir":
+            comenzar = False
+            return comenzar
+
+        return comenzar
+
+    def jugar_ronda(self) -> bool:
+        jugar = True
+        if jugar == False:
+            return jugar
         self.vista.mostrar_menu_opcion()
         eleccion = self.vista.pedir_opcion()
         if eleccion == "salir":
-            self.finalizar_juego()
+            jugar = False
+            return jugar
         self.cargar_pokemons()
         self.vista.aparecer_pokemon()
         palabra_secreta = juego.generar_palabra()
+        tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
+        tablero_relleno = juego.tablero_relleno(palabra_secreta)
         
-        while eleccion != self.vista.SALIR and not self.ronda_finalizada():
+        while eleccion != self.vista.SALIR and not self.ronda_finalizada() and jugar:
             if eleccion == 1:  # Pedir letra
-                tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
-                tablero_relleno = juego.tablero_relleno(palabra_secreta)
                 juego.vista.imprimir_tablero(tablero_vacio)
                 letra = juego.vista.pedir_letra()
                 actualizacion = juego.actualizar_tablero(letra, palabra_secreta)
                 juego.vista.imprimir_tablero(actualizacion)
+                
+                # Volver a pedir elección
+                eleccion = self.vista.pedir_opcion()
+                if eleccion == "salir" or self.ronda_finalizada():
+                    self.vista.despedida()
+                    jugar == False
+                    return jugar
+
             if eleccion == 2:  # Pedir palabra
-                tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
-                tablero_relleno = juego.tablero_relleno(palabra_secreta)
                 juego.vista.imprimir_tablero(tablero_vacio)
                 palabra = juego.vista.pedir_palabra()
                 actualizacion = juego.actualizar_tablero(palabra, palabra_secreta)
                 juego.vista.imprimir_tablero(actualizacion)
+
+                # Volver a pedir elección
+                eleccion = self.vista.pedir_opcion()
+                if eleccion == "salir" or self.ronda_finalizada():
+                    self.vista.despedida()
+                    jugar == False
+                    return jugar
+
             if eleccion == 3:  # Pedir pista
                 juego.generar_pista(palabra_secreta, randint(0, 3))
+                
+                # Volver a pedir elección
+                eleccion = self.vista.pedir_opcion()
+                if eleccion == "salir" or self.ronda_finalizada():
+                    self.vista.despedida()
+                    jugar == False
+                    return jugar
+
             if eleccion  == 4:  # Rendirse
-                self.vista.mensaje_derrota()
-                self.finalizar_juego()
+                self.vista.mensaje_rendirse(self.pokedex[palabra_secreta])
+
+                respuesta = self.vista.volver_a_jugar()
+
+                if respuesta == "s":
+                    jugar = True
+                else:
+                    jugar == False
+                    return jugar
+        
+        return jugar
+                
     
     def ronda_finalizada(self) -> bool:
         return self.tablero_v == self.tablero_r
-    
-    def finalizar_juego(self) -> None:
-        print("Hasta pronto!")
 
-    def jugar(self):
-        self.jugar_ronda()
+    def jugar(self) -> None:
+        jugar = True
+        self.comienzo()
+
+        if not self.comienzo:
+            jugar = False
+
+        while jugar == True:
+            self.jugar_ronda()
 
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
     juego = Juego()
-    juego.jugar
+    juego.jugar()
