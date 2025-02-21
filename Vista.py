@@ -86,7 +86,7 @@ class Vista:
     def imprimir_tablero(self, tablero) -> None:
         for i in range(len(tablero)):
             print(tablero[i], end=" ")
-        print()
+        print("\n")
     
     def mensaje_victoria(self, nombre: str) -> None:
         print(f"\nFELICIDADES! El pokemon ha sido capturado!\nAhora {nombre} será añadido a la pokedex")
@@ -107,11 +107,6 @@ class Vista:
         print()
         sleep(1)
         print(f"\n{nombre} ha sido registrado correctamente :)")
-    
-    def error_agregado(self) -> None:
-        print()
-        sleep(1)
-        print("\nVaya, parece que algo no ha salido bien.")
 
     def despedida(self) -> None:
         print(f"\n\nHasta la próxima!")

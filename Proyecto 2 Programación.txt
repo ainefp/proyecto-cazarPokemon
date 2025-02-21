@@ -6,7 +6,6 @@ menú y todo eso
 ha aparecido un pokemon!
 Intenta adivinar su nombre
 
-(antes de llamar, comprobar que no existe ya en la pokedex. Si existe: generar otro random)
 _ _ _ _ _ _
 
 [1. Decir letra]
