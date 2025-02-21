@@ -94,18 +94,22 @@ class Juego:
 
     def jugar_ronda(self) -> bool:
         jugar = True
+
         if jugar == False:
             return jugar
-        self.vista.mostrar_menu_opcion()
-        eleccion = self.vista.pedir_opcion()
-        if eleccion == "salir":
-            jugar = False
-            return jugar
+        
         self.cargar_pokemons()
         self.vista.aparecer_pokemon()
         palabra_secreta = juego.generar_palabra()
         tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
         tablero_relleno = juego.tablero_relleno(palabra_secreta)
+
+        self.vista.mostrar_menu_opcion()
+        eleccion = self.vista.pedir_opcion()
+
+        if eleccion == "salir":
+            jugar = False
+            return jugar
         
         while eleccion != self.vista.SALIR and not self.ronda_finalizada() and jugar:
             if eleccion == 1:  # Pedir letra
@@ -129,7 +133,7 @@ class Juego:
 
                 # En caso de ganar la ronda
                 if self.ronda_finalizada():
-                    self.ronda_ganada(True, palabra_secreta)
+                    self.ronda_ganada(palabra_secreta)
 
                 # Volver a pedir elección
                 eleccion = self.vista.pedir_opcion()
