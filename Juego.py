@@ -32,7 +32,7 @@ class Juego:
             self.biblioteca.append(agregar_pokemon)
 
     def generar_palabra(self) -> str:
-        return self.biblioteca[randint(1, len(self.biblioteca))].nombre
+        return self.biblioteca[randint(0, len(self.biblioteca))].nombre
     
     def tablero_vacio(self, n_letras: int) -> list:
         self.tablero_v = ["__"] * n_letras
@@ -127,19 +127,27 @@ class Juego:
                 actualizacion = juego.actualizar_tablero(palabra, palabra_secreta)
                 juego.vista.imprimir_tablero(actualizacion)
 
+                # En caso de ganar la ronda
+                if self.ronda_finalizada():
+                    self.ronda_ganada(True, palabra_secreta)
+
                 # Volver a pedir elección
                 eleccion = self.vista.pedir_opcion()
-                if eleccion == "salir" or self.ronda_finalizada():
+                if eleccion == "salir":
                     self.vista.despedida()
                     jugar = False
                     return jugar
 
             if eleccion == 3:  # Pedir pista
                 juego.generar_pista(palabra_secreta, randint(0, 3))
+
+                # En caso de ganar la ronda
+                if self.ronda_finalizada():
+                    self.ronda_ganada(True, palabra_secreta)
                 
                 # Volver a pedir elección
                 eleccion = self.vista.pedir_opcion()
-                if eleccion == "salir" or self.ronda_finalizada():
+                if eleccion == "salir":
                     self.vista.despedida()
                     jugar = False
                     return jugar
@@ -155,11 +163,15 @@ class Juego:
                     jugar = False
                     return jugar
         
-        return jugar
-                
+        return jugar        
     
     def ronda_finalizada(self) -> bool:
         return self.tablero_v == self.tablero_r
+    
+    def ronda_ganada(self, pokemon: str) -> None:
+        self.vista.mensaje_victoria(pokemon)
+        self.agregar_pokedex(pokemon)
+        self.vista.agregado_pokedex(pokemon)
 
     def jugar(self) -> None:
         jugar = True
