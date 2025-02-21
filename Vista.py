@@ -44,14 +44,14 @@ class Vista:
         print(mostrar)
     
     def pedir_opcion(self) -> int | str:
-        opcion = int(input("Introduce una opción: ")) - 1
+        opcion = int(input("\nIntroduce una opción: ")) - 1
         while opcion < 0 or opcion > 4:
             opcion = int(input("Por favor, introduce una opción válida: ")) - 1
         if opcion == Vista.SALIR:
             print("\nGracias por jugar! Hasta la próxima.")
             return "salir"
         
-        return opcion
+        return opcion + 1
     
     def aparecer_pokemon(self) -> None:
         aparicion = f""
@@ -113,11 +113,14 @@ class Vista:
         sleep(1)
         print("\nVaya, parece que algo no ha salido bien.")
 
+    def despedida(self) -> None:
+        print(f"\n\nHasta la próxima!")
+
     def volver_a_jugar(self) -> bool:
-        respuesta = input("\n¿Quieres seguir jugando? (s/n): ").lower()
+        respuesta = print(input("\n¿Quieres seguir jugando? (s/n): ").lower())
 
         while respuesta != "s" and respuesta != "n":
-            respuesta = input("Por favor, introduzca una respuesta válida (s/n): ").lower()
+            respuesta = print(input("Por favor, introduzca una respuesta válida (s/n): ").lower())
 
         return respuesta == "s"
     
