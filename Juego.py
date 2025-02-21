@@ -18,7 +18,7 @@ class Juego:
 
     def __init__(self) -> None:
         self.vista = Vista()
-        self.jugador = Jugador((input("Introduce tu nombre: ")))
+        self.jugador = Jugador((input("Introduce tu nombre: "))) # hacer comprobaciones
         self.biblioteca = []
         self.tablero_v = []
         self.tablero_r = []
@@ -55,7 +55,12 @@ class Juego:
         
         return self.tablero_v
     
-    def comprobar_resultado(self) -> bool:
+    def generar_pista(self, palabra_secreta, n_frase) -> None:
+        pista = Pista()
+        pista = pista.pedir_pista(palabra_secreta, randint(0,3))
+        self.vista.mostrar_pista(pista)
+    
+    def ronda_finalizada(self) -> bool:
         return self.tablero_v == self.tablero_r
     
     def agregar_pokedex(self, nombre_pokemon: str) -> None:
@@ -71,27 +76,49 @@ class Juego:
         except:
             self.vista.error_agregado()
 
+    def comienzo(self):
+        self.vista.bienvenida()
+        eleccion = self.vista.mostrar_menu_inicial()
+        if eleccion == "salir":
+            self.finalizar_juego()
+
+    def jugar_ronda(self):
+        self.vista.mostrar_menu_opcion()
+        eleccion = self.vista.pedir_opcion()
+        if eleccion == "salir":
+            self.finalizar_juego()
+        self.cargar_pokemons()
+        self.vista.aparecer_pokemon()
+        palabra_secreta = juego.generar_palabra()
+        
+        while eleccion != self.vista.SALIR and not self.ronda_finalizada():
+            if eleccion == 1:  # Pedir letra
+                tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
+                tablero_relleno = juego.tablero_relleno(palabra_secreta)
+                juego.vista.imprimir_tablero(tablero_vacio)
+                letra = juego.vista.pedir_letra()
+                actualizacion = juego.actualizar_tablero(letra, palabra_secreta)
+                juego.vista.imprimir_tablero(actualizacion)
+            if eleccion == 2:  # Pedir palabra
+                tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
+                tablero_relleno = juego.tablero_relleno(palabra_secreta)
+                juego.vista.imprimir_tablero(tablero_vacio)
+                palabra = juego.vista.pedir_palabra()
+                actualizacion = juego.actualizar_tablero(palabra, palabra_secreta)
+                juego.vista.imprimir_tablero(actualizacion)
+            if eleccion == 3:  # Pedir pista
+                juego.generar_pista(palabra_secreta, randint(0, 3))
+            if eleccion  == 4:  # Rendirse
+                self.vista.mensaje_derrota()
+                self.finalizar_juego()
+    
+    def finalizar_juego(self) -> None:
+        print("Hasta pronto!")
+
+    def jugar(self):
+        pass
+
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
     juego = Juego()
-    juego.vista.bienvenida()
-    juego.vista.mostrar_menu_inicial()
-    juego.vista.mostrar_menu_opcion()
-    juego.cargar_pokemons()
-    juego.vista.aparecer_pokemon()
-    palabra_secreta = juego.generar_palabra()
-    tablero_vacio = juego.tablero_vacio(contar_letras(palabra_secreta))
-    juego.vista.imprimir_tablero(tablero_vacio)
-    tablero_relleno = juego.tablero_relleno(palabra_secreta)
-    
-    partida_ganada = False
-    # Para comprobar que has ganado se puede hacer:
-    # while not partida_ganada:
-    #     palabra = juego.vista.pedir_palabra()
-    #     act = juego.actualizar_tablero(palabra, palabra_secreta)
-    #     juego.vista.imprimir_tablero(act)
-    #     partida_ganada = juego.comprobar_resultado()
-    
-    juego.vista.victoria(palabra_secreta)
-
-    #rendirse
+    juego.jugar

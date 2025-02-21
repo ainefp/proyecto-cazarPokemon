@@ -1,4 +1,3 @@
-import random
 import json
 
 class Pista:
@@ -10,7 +9,7 @@ class Pista:
                        f"El pokemon mide",
                        f"Su número de pokedex es"]
 
-    def pista(self, palabra_secreta: str, n_frase: int) -> None:
+    def pedir_pista(self, palabra_secreta: str, n_frase: int) -> None:
         with open('Generar_pokemon.json', 'r') as archivo:
             pokemons = json.load(archivo)
         datos = pokemons[palabra_secreta]
@@ -26,4 +25,4 @@ class Pista:
             case 3:
                 resultado += f" {datos['n_pokedex']}"
 
-        print(resultado)
+        return resultado

@@ -37,12 +37,13 @@ class Vista:
         
         return opcion
 
-    def mostrar_menu_opcion(self) -> int | str:
+    def mostrar_menu_opcion(self) -> None:
         mostrar = f"\n"
         for i in range(len(self.menu)):
             mostrar += f"{i+1}. {self.menu[i]}\n"
         print(mostrar)
-
+    
+    def pedir_opcion(self) -> int | str:
         opcion = int(input("Introduce una opción: ")) - 1
         while opcion < 0 or opcion > 4:
             opcion = int(input("Por favor, introduce una opción válida: ")) - 1
@@ -79,16 +80,15 @@ class Vista:
 
         return palabra
     
-    def mostrar_pista(self, palabra_secreta: str) -> None:
-        pista = Pista()
-        print(pista.pista(palabra_secreta, random.randint(0, 3)))
+    def mostrar_pista(self, resultado) -> None:
+        print(resultado)
 
     def imprimir_tablero(self, tablero) -> None:
         for i in range(len(tablero)):
             print(tablero[i], end=" ")
         print()
     
-    def victoria(self, nombre: str) -> None:
+    def mensaje_victoria(self, nombre: str) -> None:
         print(f"\nFELICIDADES! El pokemon ha sido capturado!\nAhora {nombre} será añadido a la pokedex")
         sleep(0.3)
         print("\nCargando pokemon a la pokedex...")
@@ -97,10 +97,10 @@ class Vista:
         sleep(0.5)
         print("\nYa casi hemos terminado...", end="")
     
-    def derrota(self, nombre: str) -> None:
+    def mensaje_derrota(self, nombre: str) -> None:
         print(f"\nEl nombre del pokemon era: {nombre}\nHas perdido, te deseo más suerte en la próxima captura.")
 
-    def rendirse(self, pokemon: str) -> None:
+    def mensaje_rendirse(self, pokemon: str) -> None:
         print(f"\nEl pokemon es: {pokemon}. Más suerte la próxima vez!")
     
     def agregado_pokedex(self, nombre: str) -> None:
