@@ -33,6 +33,7 @@ class Pokedex:
             pokedex = self.generar_pokedex(nombre_usuario)
         
         nombre = pokemon.nombre
+        
         if nombre in pokedex:
             # Esto para no duplicar pokemons, si existe, se suma 1 a la cantidad
             pokedex[nombre]['cantidad'] += 1
@@ -51,3 +52,6 @@ class Pokedex:
             json.dump(pokedex, archivo, indent=4)
 
 # Aún no funciona del todo
+# pokedex = Pokedex()
+# pokemon = Pokemon("pikachu", 5, "electr", 2, 3, 34)
+# pokedex.agregar_pokemon(pokemon, 'proba')
