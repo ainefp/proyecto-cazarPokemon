@@ -64,20 +64,16 @@ class Juego:
             self.jugador.victoria
             self.jugador.capturar_pokemon
         if not victoria:
-            self.jugador.derrota
+            self.jugador.derrota()
     
     def agregar_pokedex(self, nombre_pokemon: str) -> None:
-        try:
-            with open('Generar_pokemon.json', 'r') as archivo:
-                pokemons = json.load(archivo)
-            for pokemon in pokemons:
-                datos = pokemons[pokemon]
-                agregar_pokemon = Pokemon(datos['nombre'], contar_letras(datos['nombre']), datos['tipo'], datos['tamanho'], datos['peso'], datos['n_pokedex'])
-                if agregar_pokemon.nombre == nombre_pokemon:
-                    self.pokedex.agregar_pokemon(agregar_pokemon, nombre_pokemon)
-                    self.vista.agregado_pokedex(nombre_pokemon)            
-        except:
-            self.vista.error_agregado()
+        with open('Generar_pokemon.json', 'r') as archivo:
+            pokemons = json.load(archivo)
+        for pokemon in pokemons:
+            datos = pokemons[pokemon]
+            agregar_pokemon = Pokemon(datos['nombre'], contar_letras(datos['nombre']), datos['tipo'], datos['tamanho'], datos['peso'], datos['n_pokedex'])
+            if agregar_pokemon.nombre == nombre_pokemon:
+                self.pokedex.agregar_pokemon(agregar_pokemon, nombre_pokemon)
 
     def comienzo(self) -> bool:
         comenzar = True
@@ -111,7 +107,10 @@ class Juego:
             jugar = False
             return jugar
         
-        while eleccion != self.vista.SALIR and not self.ronda_finalizada() and jugar:
+        # trucado:
+        self.vista.imprimir_tablero(tablero_relleno)
+
+        while eleccion != self.vista.SALIR - 1 and not self.ronda_finalizada() and jugar:
             if eleccion == 1:  # Pedir letra
                 juego.vista.imprimir_tablero(tablero_vacio)
                 letra = juego.vista.pedir_letra()
@@ -157,11 +156,12 @@ class Juego:
                     return jugar
 
             if eleccion  == 4:  # Rendirse
-                self.vista.mensaje_rendirse(self.pokedex[palabra_secreta])
+                self.vista.mensaje_rendirse(palabra_secreta)
+                self.jugador.derrota()
 
                 respuesta = self.vista.volver_a_jugar()
 
-                if respuesta == "s":
+                if respuesta:
                     jugar = True
                 else:
                     jugar = False
@@ -176,6 +176,9 @@ class Juego:
         self.vista.mensaje_victoria(pokemon)
         self.agregar_pokedex(pokemon)
         self.vista.agregado_pokedex(pokemon)
+
+        self.jugador.victoria()
+        self.jugador.capturar_pokemon()
 
     def jugar(self) -> None:
         jugar = True

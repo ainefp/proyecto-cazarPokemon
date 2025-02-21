@@ -112,10 +112,11 @@ class Vista:
         print(f"\n\nHasta la próxima!")
 
     def volver_a_jugar(self) -> bool:
-        respuesta = print(input("\n¿Quieres seguir jugando? (s/n): ").lower())
+        print()
+        respuesta = input("¿Quieres seguir jugando? (s/n): ").lower()
 
         while respuesta != "s" and respuesta != "n":
-            respuesta = print(input("Por favor, introduzca una respuesta válida (s/n): ").lower())
+            respuesta = input("Por favor, introduzca una respuesta válida (s/n): ").lower()
 
         return respuesta == "s"
     
