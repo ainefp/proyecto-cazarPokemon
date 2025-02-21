@@ -157,7 +157,3 @@ class Vista:
 
         except FileNotFoundError:
             print("Aún no has capturado ningún pokemon")
-        # Mejorar esto
-
-vista = Vista()
-vista.mostrar_pokemons_capturados("proba")
