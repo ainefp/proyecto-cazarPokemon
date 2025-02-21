@@ -4,10 +4,10 @@ class Pista:
     pistas: list
 
     def __init__(self):
-        self.pistas = [f"El pokemon es de tipo",
-                       f"El pokemon pesa",
-                       f"El pokemon mide",
-                       f"Su número de pokedex es"]
+        self.pistas = [f"\nEl pokemon es de tipo",
+                       f"\nEl pokemon pesa",
+                       f"\nEl pokemon mide",
+                       f"\nSu número de pokedex es"]
 
     def pedir_pista(self, palabra_secreta: str, n_frase: int) -> None:
         with open('Generar_pokemon.json', 'r') as archivo:
