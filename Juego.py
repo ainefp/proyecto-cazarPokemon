@@ -59,9 +59,13 @@ class Juego:
         pista = Pista()
         pista = pista.pedir_pista(palabra_secreta, randint(0,3))
         self.vista.mostrar_pista(pista)
-    
-    def ronda_finalizada(self) -> bool:
-        return self.tablero_v == self.tablero_r
+
+    def comprobar_ronda(self, victoria: bool) -> None:
+        if victoria:
+            self.jugador.victoria
+            self.jugador.capturar_pokemon
+        if not victoria:
+            self.jugador.derrota
     
     def agregar_pokedex(self, nombre_pokemon: str) -> None:
         try:
@@ -112,11 +116,14 @@ class Juego:
                 self.vista.mensaje_derrota()
                 self.finalizar_juego()
     
+    def ronda_finalizada(self) -> bool:
+        return self.tablero_v == self.tablero_r
+    
     def finalizar_juego(self) -> None:
         print("Hasta pronto!")
 
     def jugar(self):
-        pass
+        self.jugar_ronda()
 
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
