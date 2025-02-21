@@ -38,6 +38,7 @@ class Pokedex:
             pokedex[nombre]['cantidad'] += 1
         else:
             pokedex[pokemon.nombre] = {
+                'nombre': pokemon.nombre,
                 'tipo': pokemon.tipo,
                 'tamanho': pokemon.tamanho,
                 'peso': pokemon.peso,

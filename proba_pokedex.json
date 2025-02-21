@@ -1,0 +1,36 @@
+{
+    "bulbasaur": {
+        "nombre": "bulbasaur",
+        "tipo": "planta/veneno",
+        "tamanho": 0.7,
+        "peso": 6.9,
+        "n_pokedex": 1,
+        "cantidad": 1
+    },
+
+    "ivysaur": {
+        "nombre": "ivysaur",
+        "tipo": "planta/veneno",
+        "tamanho": 1,
+        "peso": 13,
+        "n_pokedex": 2,
+        "cantidad": 5
+    },
+
+    "venusaur": {
+        "nombre": "venusaur",
+        "tipo": "planta/veneno",
+        "tamanho": 2.4,
+        "peso": 155.5,
+        "n_pokedex": 3,
+        "cantidad": 2
+    },
+    "charizard": {
+        "nombre": "charizard",
+        "tipo": "fuego/volador",
+        "tamanho": 1.7,
+        "peso": 90.5,
+        "n_pokedex": 6,
+        "cantidad": 23
+    }
+}

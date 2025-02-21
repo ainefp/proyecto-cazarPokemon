@@ -121,10 +121,12 @@ class Vista:
 
         return respuesta == "s"
     
-    def mostrar_pokemons_capturados(self, nombre_usuario) -> str:
+    def mostrar_pokemons_capturados(self, nombre_usuario: str) -> str:
         registro = f""
-        CARACTER = "-"
-        LARGO = 37
+        CARACTER_1 = "="
+        CARACTER_2 = "-"
+        LARGO_1 = 37
+        LARGO_2 = 24
         frase = "Registro de Pokemons capturados"
 
         try:
@@ -134,17 +136,28 @@ class Vista:
 
                 #Contamos la cantidad de pokemons que hay
                 cantidad = len(pokedex)
-                print(cantidad)
 
-                registro += f"\n{CARACTER * LARGO}\n"
-                registro += f"{frase.center(LARGO, ' ')}\n"
-                registro += f"{CARACTER * LARGO}\n"
-                registro += f"Total de Pokemons capturados: {cantidad}\n"
+                registro += f"\n{CARACTER_1 * LARGO_1}\n"
+                registro += f"{frase.center(LARGO_1, ' ')}\n"
+                registro += f"{CARACTER_1 * LARGO_1}\n"
+                
                 for pokemon in pokedex:
-                    registro += f"{pokemon}\n"
+                    datos = pokedex[pokemon]
+                    if datos['cantidad'] > 1:
+                        cantidad += datos['cantidad']-1
+                    
+                    registro += f"\n{("Nombre: "+str(datos['nombre'])).center(LARGO_1, ' ')}"
+                    registro += f"\n{("Tipo: "+str(datos['tipo'])).center(LARGO_1, ' ')}"
+                    registro += f"\n{("Cantidad: "+str(datos['cantidad'])).center(LARGO_1, ' ')}\n"
+                    registro += f"\n{(CARACTER_2 * LARGO_2).center(LARGO_1, ' ')}\n"
+                
+                registro += f"\nTotal de Pokemons capturados: {cantidad}\n"
 
                 print(registro)
 
         except FileNotFoundError:
             print("Aún no has capturado ningún pokemon")
         # Mejorar esto
+
+vista = Vista()
+vista.mostrar_pokemons_capturados("proba")
