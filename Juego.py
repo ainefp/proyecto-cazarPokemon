@@ -118,7 +118,7 @@ class Juego:
                 eleccion = self.vista.pedir_opcion()
                 if eleccion == "salir" or self.ronda_finalizada():
                     self.vista.despedida()
-                    jugar == False
+                    jugar = False
                     return jugar
 
             if eleccion == 2:  # Pedir palabra
@@ -131,7 +131,7 @@ class Juego:
                 eleccion = self.vista.pedir_opcion()
                 if eleccion == "salir" or self.ronda_finalizada():
                     self.vista.despedida()
-                    jugar == False
+                    jugar = False
                     return jugar
 
             if eleccion == 3:  # Pedir pista
@@ -141,7 +141,7 @@ class Juego:
                 eleccion = self.vista.pedir_opcion()
                 if eleccion == "salir" or self.ronda_finalizada():
                     self.vista.despedida()
-                    jugar == False
+                    jugar = False
                     return jugar
 
             if eleccion  == 4:  # Rendirse
@@ -152,7 +152,7 @@ class Juego:
                 if respuesta == "s":
                     jugar = True
                 else:
-                    jugar == False
+                    jugar = False
                     return jugar
         
         return jugar
@@ -163,13 +163,15 @@ class Juego:
 
     def jugar(self) -> None:
         jugar = True
-        self.comienzo()
+        comienzo = self.comienzo()
 
-        if not self.comienzo:
+        if not comienzo:
             jugar = False
 
         while jugar == True:
-            self.jugar_ronda()
+            ronda = self.jugar_ronda()
+            if ronda == False:
+                return ronda
 
 if __name__ == "__main__":
     # EJEMPLO DE EJECUCIÓN:
