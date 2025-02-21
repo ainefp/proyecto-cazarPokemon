@@ -22,16 +22,19 @@ class Vista:
         print(bienvenida)
     
     def mostrar_menu_inicial(self) -> int | str:
-        menu_incial = ["Comenzar juego", "Salir"]
+        menu_incial = ["Comenzar juego", "Mostrar pokedex", "Salir"]
         mostrar = f""
+
         for i in range(len(menu_incial)):
             mostrar += f"{i+1}. {menu_incial[i]}\n"
+
         print(mostrar)
 
         opcion = int(input("Introduce una opción: ")) - 1
-        while opcion not in [0, 1]:
+        while opcion < 0 or opcion > 2:
             opcion = int(input("Por favor, introduce una opción válida: ")) - 1
-        if opcion == 1:
+
+        if opcion == 2:
             print("\nGracias por jugar! Hasta la próxima.")
             return "salir"
         

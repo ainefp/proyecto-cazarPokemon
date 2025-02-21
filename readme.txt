@@ -1,1 +1,1 @@
-rendirse no funciona
+La opción rendirse no funciona correctamente, al ser implementada en el último momento no me ha dado tiempo a solucionar errores.
